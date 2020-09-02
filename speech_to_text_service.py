@@ -1,9 +1,10 @@
+import io
+import logging
 from google.cloud import speech_v1
 from google.cloud.speech_v1 import enums
-import logging
 
 
-def sample_recognize(blob, num_audio_channels=1):
+def sample_recognize(local_file_path, num_audio_channels=1):
     """
     Transcribe a short audio file using synchronous speech recognition
     """
@@ -25,7 +26,9 @@ def sample_recognize(blob, num_audio_channels=1):
         "sample_rate_hertz": sample_rate_hertz,
         "encoding": encoding,
     }
-    audio = {"content": blob}
+    with io.open(local_file_path, "rb") as f:
+        content = f.read()
+    audio = {"content": content}
 
     response = client.recognize(config, audio)
     logging.debug(response)

@@ -41,10 +41,14 @@ $(function() {
                     type: 'audio/wav'
                 });
 
+                let fd = new FormData()
+                fd.append('file', blob, 'test.wav');
+                fd.append('audio_channel_count', internalRecorder.numberOfAudioChannels);
+
                 $.ajax({
                     type: 'POST',
                     url: '/upload',
-                    data: blob,
+                    data: fd,
                     processData: false,
                     contentType: false
                 }).done(function(res) {
