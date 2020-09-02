@@ -33,5 +33,5 @@ def sample_recognize(blob, num_audio_channels=1):
     for result in response.results:
         # First alternative is the most probable result
         alternative = result.alternatives[0]
-        final_result.append(alternative.transcript)
+        final_result = {'transcript': alternative.transcript}
     return final_result

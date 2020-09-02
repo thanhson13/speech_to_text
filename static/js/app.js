@@ -48,9 +48,8 @@ $(function() {
                     processData: false,
                     contentType: false
                 }).done(function(res) {
-                    console.log(res.data);
                     if (res.data) {
-                        $('#transcript').html(res.data.join(","));
+                        $('#transcript').html(res.data.transcript);
                     }
                 });
             });
