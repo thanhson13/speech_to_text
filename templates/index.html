@@ -2,8 +2,8 @@
 
 {% block content %}
     <h1>{% block title %} Welcome {% endblock %}</h1>
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
+    <button id="start" class="btn btn-primary">Start record</button>
+    <button id="stop" class="btn btn-danger" disabled>Stop record</button>
     <div>
         <h1>Transcript</h1>
         <p id="transcript"></p>

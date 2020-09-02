@@ -18,10 +18,10 @@
         {% block content %} {% endblock %}
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.6.1/RecordRTC.js"></script>
+    <script src="{{ url_for('static', filename= 'js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename= 'js/RecordRTC.min.js') }}"></script>
     <script src="{{ url_for('static', filename= 'js/app.js') }}"></script>
   </body>
 </html>

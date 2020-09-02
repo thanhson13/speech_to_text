@@ -1,20 +1,18 @@
 $(function() {
     let mediaRecorder;
-    let shouldStop = false;
-    let stopped = false;
     const startButton = document.getElementById('start');
     const stopButton = document.getElementById('stop');
 
     startButton.addEventListener('click', function() {
         console.log('start');
-        shouldStop = false;
-        stopped = false;
         navigator.mediaDevices.getUserMedia({ audio: true, video: false })
             .then(handleSuccess);
     });
 
     stopButton.addEventListener('click', function() {
         console.log('stop');
+        startButton.disabled = false;
+        stopButton.disabled = true;
         mediaRecorder.stopRecording(function () {
             console.log("stop recording");
             let internalRecorder = mediaRecorder.getInternalRecorder();
@@ -62,6 +60,8 @@ $(function() {
     });
 
     const handleSuccess = function(stream) {
+        startButton.disabled = true;
+        stopButton.disabled = false;
         mediaRecorder = RecordRTC(stream, {
             type: 'audio',
             recorderType: StereoAudioRecorder,
