@@ -32,4 +32,4 @@ def upload_audio_blob():
     file.save(full_path)
     result = speech_to_text_service.sample_recognize(
         full_path, int(audio_channels_count))
-    return jsonify({'data': result})
+    return jsonify({'success': True, 'data': result})
