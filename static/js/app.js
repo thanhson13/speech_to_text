@@ -52,8 +52,10 @@ $(function() {
                     processData: false,
                     contentType: false
                 }).done(function(res) {
-                    if (res.data) {
+                    if (res.success) {
                         $('#transcript').html(res.data.transcript);
+                    } else {
+                        alert('Lỗi');
                     }
                 });
             });
